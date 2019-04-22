@@ -43,6 +43,7 @@ public class AparatosData {
             ResultSet rs = ps.getGeneratedKeys();
             
             
+            
         } catch (SQLException ex) {
             Logger.getLogger(AparatosData.class.getName()).log(Level.SEVERE, null, ex);
         }
