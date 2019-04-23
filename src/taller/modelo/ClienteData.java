@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class ClienteData {
     private Connection con;
@@ -46,7 +46,7 @@ public class ClienteData {
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
-                cliente.setIdCliente(rs.getInt(1));
+                cliente.setIdCliente(rs.getLong(1));
             } else {
                 System.out.println("No se pudo obtener el id luego de insertar un cliente");
             }
@@ -85,7 +85,7 @@ public class ClienteData {
         return clientes;
     }
     
-    public void borrarClientes(int idCliente){
+    public void borrarClientes(long idCliente){
     try {
             
             String sql = "DELETE FROM clientes WHERE idCliente =?;";
@@ -116,7 +116,7 @@ public class ClienteData {
             ps.setLong(2, cliente.getDni());
             ps.setString(3, cliente.getDomicilio());
             ps.setLong(4, cliente.getCelular());
-            ps.setInt(5, cliente.getIdCliente());
+            ps.setInt(5, (int) cliente.getIdCliente());
             ps.executeUpdate();
             
           
@@ -128,7 +128,7 @@ public class ClienteData {
     
     }
     
-    public Clientes buscarClientes(int idCliente){
+    public Clientes buscarClientes(long idCliente){
     Clientes cliente=null;
     try {
             
@@ -142,7 +142,7 @@ public class ClienteData {
             
             while(resultSet.next()){
                 cliente = new Clientes();
-                cliente.setIdCliente(resultSet.getInt("idCliente"));
+                cliente.setIdCliente(resultSet.getLong("idCliente"));
                 cliente.setNombre(resultSet.getString("nombre"));
                 cliente.setDni(resultSet.getLong("dni"));
                 cliente.setDomicilio(resultSet.getString("domicilio"));
@@ -161,4 +161,5 @@ public class ClienteData {
         
         return cliente;
     }
+    
 }

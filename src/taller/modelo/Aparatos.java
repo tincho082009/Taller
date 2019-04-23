@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class Aparatos {
     private int nroDeSerie;
@@ -21,8 +21,8 @@ public class Aparatos {
     public Aparatos() {
     }
 
-    public Aparatos(int dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
-        this.dueño = dueño;
+    public Aparatos(int Dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
+        this.dueño = Dueño;
         this.tipoAparato = tipoAparato;
         this.fechaIngreso = fechaIngreso;
         this.fechaEgreso = fechaEgreso;
@@ -76,7 +76,7 @@ public class Aparatos {
         this.fechaEgreso = fechaEgreso;
     }
     
-    public String toString(){
+    public String toString(String dueño){
         return nroDeSerie+"-"+dueño+"-"+tipoAparato+"-"+fechaIngreso+"-"+fechaEgreso;
     }
 }

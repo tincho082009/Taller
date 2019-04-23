@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class Reparaciones {
     private int idReparaciones;
@@ -76,5 +76,7 @@ public class Reparaciones {
         this.estado = estado;
     }
     
-    
+    public String toString(){
+        return idReparaciones+"-"+nroDeSerie+"-"+codigo+"-"+fechaRealizacion+"-"+estado;
+    }
 }

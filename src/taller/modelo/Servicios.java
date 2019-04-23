@@ -7,7 +7,7 @@ package taller.modelo;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class Servicios {
     private int codigo;
@@ -51,9 +51,9 @@ public class Servicios {
     public void setCosto(double costo) {
         this.costo = costo;
     }
-    
     public String toString(){
         return codigo+"-"+descripcion+"-"+costo;
     }
-            
 }
+    
+            

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class Conexion {
     private String url="jdbc:mysql://localhost/taller_1";

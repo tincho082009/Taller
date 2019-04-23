@@ -7,10 +7,10 @@ package taller.modelo;
 
 /**
  *
- * @author Agustin
+ * @author Usuario
  */
 public class Clientes {
-    private int idCliente;
+    private long idCliente;
     private String nombre;
     private long dni;
     private String domicilio;
@@ -26,7 +26,7 @@ public class Clientes {
         this.celular = celular;
     }
 
-    public Clientes(int idCliente, String nombre, long dni, String domicilio, long celular) {
+    public Clientes(long idCliente, String nombre, long dni, String domicilio, long celular) {
         this.idCliente = idCliente;
         this.nombre = nombre;
         this.dni = dni;
@@ -34,11 +34,11 @@ public class Clientes {
         this.celular = celular;
     }
 
-    public int getIdCliente() {
+    public long getIdCliente() {
         return idCliente;
     }
 
-    public void setIdCliente(int idCliente) {
+    public void setIdCliente(long idCliente) {
         this.idCliente = idCliente;
     }
 
@@ -73,13 +73,9 @@ public class Clientes {
     public void setCelular(long celular) {
         this.celular = celular;
     }
-
     
-    public String toString() {
+    public String toString(){
         return idCliente+"-"+nombre+"-"+dni+"-"+domicilio+"-"+celular;
     }
-    
-    
-    
-    
 }
+
