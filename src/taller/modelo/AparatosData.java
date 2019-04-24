@@ -20,9 +20,11 @@ import java.util.List;
  */
 public class AparatosData {
      private Connection con;
+     private Conexion conexion;
 
     public AparatosData(Conexion conexion) {
         try {
+            this.conexion=conexion;
             con = conexion.getConexion();
         } catch (SQLException ex) {
             System.out.println("Error al abrir al obtener la conexion");
@@ -34,17 +36,19 @@ public class AparatosData {
         try {
             String sq1 = "INSERT INTO aparatos (dueño, tipoAparato, fechaIngreso, fechaEgreso) VALUES (?, ?, ?, ?);";
             PreparedStatement ps = con.prepareStatement(sq1, Statement.RETURN_GENERATED_KEYS);
-             ps.setInt(1, aparato.getDueño());
+            
+             ps.setInt(1, aparato.getDueño().getIdCliente());
              ps.setString(2, aparato.getTipoAparato());
              ps.setDate(3, Date.valueOf(aparato.getFechaIngreso()));
              ps.setDate(4, Date.valueOf(aparato.getFechaEgreso()));
+            
             
             ps.executeUpdate();
             
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
-                aparato.setNroDeSerie(rs.getInt(1));
+              aparato.setNroDeSerie(rs.getInt(1));
             } else {
                 System.out.println("No se pudo obtener el id luego de insertar un aparato");
             }
@@ -67,7 +71,8 @@ public class AparatosData {
             while(resultSet.next()){
                 aparato = new Aparatos();
                 aparato.setNroDeSerie(resultSet.getInt("nroDeSeie"));
-                aparato.setDueño(resultSet.getInt("dueño"));
+                Clientes c = buscarCliente(resultSet.getInt("dueño"));
+                aparato.setDueño(c);
                 aparato.setTipoAparato(resultSet.getString("tipoAparato"));
                 aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
                 aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
@@ -96,7 +101,7 @@ public class AparatosData {
             ps.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un aparato: " + ex.getMessage());
+            System.out.println("Error al borrar un aparato: " + ex.getMessage());
         }
         
     
@@ -111,7 +116,7 @@ public class AparatosData {
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, aparatos.getNroDeSerie());
-            ps.setInt(2, aparatos.getDueño());
+            ps.setInt(2, aparatos.getDueño().getIdCliente());
             ps.setString(3, aparatos.getTipoAparato());
             ps.setDate(4, Date.valueOf(aparatos.getFechaIngreso()));
             ps.setDate(5, Date.valueOf(aparatos.getFechaEgreso()));
@@ -121,7 +126,7 @@ public class AparatosData {
             ps.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un aparato: " + ex.getMessage());
+            System.out.println("Error al actualizar un aparato: " + ex.getMessage());
         }
     
     }
@@ -141,7 +146,8 @@ public class AparatosData {
             while(resultSet.next()){
                 aparato = new Aparatos();
                 aparato.setNroDeSerie(resultSet.getInt("nroDeSerie"));
-                aparato.setDueño(resultSet.getInt("dueño"));
+                Clientes c = buscarCliente(resultSet.getInt("dueño"));
+                aparato.setDueño(c);
                 aparato.setTipoAparato(resultSet.getString("tipoAparato"));
                 aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
                 aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
@@ -155,10 +161,18 @@ public class AparatosData {
             
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar aparato: " + ex.getMessage());
+            System.out.println("Error al buscar aparato: " + ex.getMessage());
         }
         
         return aparato;
+    }
+    
+    public Clientes buscarCliente(int id){
+    
+        ClienteData cd=new ClienteData(conexion);
+        
+        return cd.buscarClientes(id);
+        
     }
     
 }

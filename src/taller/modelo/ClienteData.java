@@ -46,7 +46,7 @@ public class ClienteData {
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
-                cliente.setIdCliente(rs.getLong(1));
+                cliente.setIdCliente(rs.getInt(1));
             } else {
                 System.out.println("No se pudo obtener el id luego de insertar un cliente");
             }
@@ -85,20 +85,20 @@ public class ClienteData {
         return clientes;
     }
     
-    public void borrarClientes(long idCliente){
+    public void borrarClientes(int idCliente){
     try {
             
             String sql = "DELETE FROM clientes WHERE idCliente =?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, idCliente);
+            ps.setInt(1, idCliente);
                       
             ps.executeUpdate();
                         
             ps.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un cliente: " + ex.getMessage());
+            System.out.println("Error al borrar un cliente: " + ex.getMessage());
         }
         
     
@@ -116,33 +116,33 @@ public class ClienteData {
             ps.setLong(2, cliente.getDni());
             ps.setString(3, cliente.getDomicilio());
             ps.setLong(4, cliente.getCelular());
-            ps.setInt(5, (int) cliente.getIdCliente());
+            ps.setInt(5, cliente.getIdCliente());
             ps.executeUpdate();
             
           
             ps.close();
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un cliente: " + ex.getMessage());
+            System.out.println("Error al actualizar un cliente: " + ex.getMessage());
         }
     
     }
     
-    public Clientes buscarClientes(long idCliente){
+    public Clientes buscarClientes(int idCliente){
     Clientes cliente=null;
     try {
             
             String sql = "SELECT * FROM clientes WHERE idCliente =?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, idCliente);
+            ps.setInt(1, idCliente);
            
             
             ResultSet resultSet=ps.executeQuery();
             
             while(resultSet.next()){
                 cliente = new Clientes();
-                cliente.setIdCliente(resultSet.getLong("idCliente"));
+                cliente.setIdCliente(resultSet.getInt("idCliente"));
                 cliente.setNombre(resultSet.getString("nombre"));
                 cliente.setDni(resultSet.getLong("dni"));
                 cliente.setDomicilio(resultSet.getString("domicilio"));
@@ -156,7 +156,7 @@ public class ClienteData {
             
     
         } catch (SQLException ex) {
-            System.out.println("Error al insertar un cliente: " + ex.getMessage());
+            System.out.println("Error al buscar un cliente: " + ex.getMessage());
         }
         
         return cliente;

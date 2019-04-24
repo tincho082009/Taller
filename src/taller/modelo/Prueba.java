@@ -5,6 +5,7 @@
  */
 package taller.modelo;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,10 +42,18 @@ public class Prueba {
             //Clientes cliente = cd.buscarClientes(15);
             //System.out.println("Nombre: " + cliente.getNombre());
             //System.out.println("Dni:" + cliente.getDni());
-                
-                
+              
+           
+            //----    APARATOS    ----//
+            
+            AparatosData ad = new AparatosData(conectar);
+            
+            Aparatos motosierra = new Aparatos(ad.buscarCliente(12), "Motosierra", LocalDate.now(), LocalDate.of(2019, 05, 10));
+            ad.guardarAparato(motosierra);
+            
+            
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

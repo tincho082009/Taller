@@ -13,7 +13,7 @@ import java.time.LocalDate;
  */
 public class Aparatos {
     private int nroDeSerie;
-    private int dueño;
+    private Clientes dueño;
     private String tipoAparato;
     private LocalDate fechaIngreso;
     private LocalDate fechaEgreso;
@@ -21,21 +21,21 @@ public class Aparatos {
     public Aparatos() {
     }
 
-    public Aparatos(int Dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
-        this.dueño = Dueño;
-        this.tipoAparato = tipoAparato;
-        this.fechaIngreso = fechaIngreso;
-        this.fechaEgreso = fechaEgreso;
-    }
-
-    public Aparatos(int nroDeSerie, int dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
-        this.nroDeSerie = nroDeSerie;
+    public Aparatos(Clientes dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
         this.dueño = dueño;
         this.tipoAparato = tipoAparato;
         this.fechaIngreso = fechaIngreso;
         this.fechaEgreso = fechaEgreso;
     }
 
+    public Aparatos(int nroDeSerie, Clientes dueño, String tipoAparato, LocalDate fechaIngreso, LocalDate fechaEgreso) {
+        this.nroDeSerie = nroDeSerie;
+        this.dueño = dueño;
+        this.tipoAparato = tipoAparato;
+        this.fechaIngreso = fechaIngreso;
+        this.fechaEgreso = fechaEgreso;
+    }
+    
     public int getNroDeSerie() {
         return nroDeSerie;
     }
@@ -44,11 +44,11 @@ public class Aparatos {
         this.nroDeSerie = nroDeSerie;
     }
 
-    public int getDueño() {
+    public Clientes getDueño() {
         return dueño;
     }
 
-    public void setDueño(int dueño) {
+    public void setDueño(Clientes dueño) {
         this.dueño = dueño;
     }
 
@@ -76,7 +76,7 @@ public class Aparatos {
         this.fechaEgreso = fechaEgreso;
     }
     
-    public String toString(String dueño){
+    public String toString(){
         return nroDeSerie+"-"+dueño+"-"+tipoAparato+"-"+fechaIngreso+"-"+fechaEgreso;
     }
 }
