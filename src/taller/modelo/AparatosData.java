@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class AparatosData {
      private Connection con;
@@ -64,22 +64,22 @@ public class AparatosData {
             
 
         try {
-            String sql = "SELECT * FROM Aparatos;";
+            String sql = "SELECT * FROM aparatos;";
             PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet resultSet = ps.executeQuery();
-            Aparatos aparato;
-            while(resultSet.next()){
-                aparato = new Aparatos();
-                aparato.setNroDeSerie(resultSet.getInt("nroDeSeie"));
-                Clientes c = buscarCliente(resultSet.getInt("dueño"));
-                aparato.setDueño(c);
-                aparato.setTipoAparato(resultSet.getString("tipoAparato"));
-                aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
-                aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
-
-                aparatos.add(aparato);
-            }      
-            ps.close();
+                ResultSet resultSet = ps.executeQuery();
+                Aparatos aparato;
+                while(resultSet.next()){
+                    aparato = new Aparatos();
+                    aparato.setNroDeSerie(resultSet.getInt("nroDeSerie"));
+                    Clientes c = buscarCliente(resultSet.getInt("dueño"));
+                    aparato.setDueño(c);
+                    aparato.setTipoAparato(resultSet.getString("tipoAparato"));
+                    aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
+                    aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
+                    
+                    aparatos.add(aparato);
+                }
+                ps.close();
         } catch (SQLException ex) {
             System.out.println("Error al obtener los aparatos: " + ex.getMessage());
         }

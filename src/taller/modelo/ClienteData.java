@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class ClienteData {
     private Connection con;

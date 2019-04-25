@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class Prueba {
     
@@ -33,7 +33,7 @@ public class Prueba {
             
             //List<Clientes> misClientes = cd.obtenerClientes();
             //for(Clientes x: misClientes){
-                //System.out.println("idCliente: " + x.getIdCliente());
+               //System.out.println("idCliente: " + x.getIdCliente());
                 //System.out.println("Nombre: " + x.getNombre());
                 //System.out.println("Dni: " + x.getDni());}
                 
@@ -48,8 +48,20 @@ public class Prueba {
             
             AparatosData ad = new AparatosData(conectar);
             
-            Aparatos motosierra = new Aparatos(ad.buscarCliente(12), "Motosierra", LocalDate.now(), LocalDate.of(2019, 05, 10));
-            ad.guardarAparato(motosierra);
+            //Aparatos motosierra = new Aparatos(ad.buscarCliente(12), "Motosierra", LocalDate.now(), LocalDate.of(2019, 05, 10));
+            //ad.guardarAparato(motosierra);
+            
+            //ad.borrarAparatos(6);
+            
+            List<Aparatos> misAparatos = ad.obtenerAparatos();
+            for(Aparatos x: misAparatos){
+                System.out.println("nroDeSerie: " + x.getNroDeSerie());
+                System.out.println("dueño: " + x.getDueño().getIdCliente());
+                System.out.println("tipoAparato: " + x.getTipoAparato());
+                System.out.println("Fecha de ingreso: " + x.getFechaIngreso());
+                System.out.println("Fecha de egreso: " + x.getFechaEgreso());
+            }
+            
             
             
         } catch (ClassNotFoundException ex) {

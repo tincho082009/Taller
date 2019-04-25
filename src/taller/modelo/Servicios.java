@@ -7,7 +7,7 @@ package taller.modelo;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class Servicios {
     private int codigo;

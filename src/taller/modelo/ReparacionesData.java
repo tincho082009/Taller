@@ -16,7 +16,7 @@ import java.util.List;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class ReparacionesData {
     private Connection con = null;

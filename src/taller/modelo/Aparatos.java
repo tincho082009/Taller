@@ -9,7 +9,7 @@ import java.time.LocalDate;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class Aparatos {
     private int nroDeSerie;

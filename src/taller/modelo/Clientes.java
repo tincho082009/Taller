@@ -7,7 +7,7 @@ package taller.modelo;
 
 /**
  *
- * @author Usuario
+ * @author Agustin
  */
 public class Clientes {
     private int idCliente;
