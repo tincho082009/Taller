@@ -19,7 +19,7 @@ import java.util.List;
  * @author Agustin
  */
 public class AparatosData {
-     private Connection con;
+     private Connection con = null;
      private Conexion conexion;
 
     public AparatosData(Conexion conexion) {
@@ -66,8 +66,8 @@ public class AparatosData {
         try {
             String sql = "SELECT * FROM aparatos;";
             PreparedStatement ps = con.prepareStatement(sql);
-                ResultSet resultSet = ps.executeQuery();
-                Aparatos aparato;
+            ResultSet resultSet = ps.executeQuery();
+            Aparatos aparato;
                 while(resultSet.next()){
                     aparato = new Aparatos();
                     aparato.setNroDeSerie(resultSet.getInt("nroDeSerie"));
@@ -155,11 +155,7 @@ public class AparatosData {
                 
             }      
             ps.close();
-            
-            
-            
-            
-    
+          
         } catch (SQLException ex) {
             System.out.println("Error al buscar aparato: " + ex.getMessage());
         }

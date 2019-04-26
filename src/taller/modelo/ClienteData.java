@@ -64,7 +64,7 @@ public class ClienteData {
         try {
             String sql = "SELECT * FROM clientes;";
             PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet resultSet = ps.executeQuery();
+            ResultSet resultSet = ps.executeQuery(); 
             Clientes cliente;
             while(resultSet.next()){
                 cliente = new Clientes();

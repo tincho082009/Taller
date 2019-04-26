@@ -54,18 +54,17 @@ public class Prueba {
             //ad.borrarAparatos(6);
             
             List<Aparatos> misAparatos = ad.obtenerAparatos();
-            for(Aparatos x: misAparatos){
-                System.out.println("nroDeSerie: " + x.getNroDeSerie());
-                System.out.println("dueño: " + x.getDueño().getIdCliente());
-                System.out.println("tipoAparato: " + x.getTipoAparato());
-                System.out.println("Fecha de ingreso: " + x.getFechaIngreso());
-                System.out.println("Fecha de egreso: " + x.getFechaEgreso());
-            }
-            
+            //for(Aparatos x: misAparatos){
+                //System.out.println("nroDeSerie: " + x.getNroDeSerie());
+                //System.out.println("dueño: " + x.getDueño().getIdCliente());
+                //System.out.println("tipoAparato: " + x.getTipoAparato());
+                //System.out.println("Fecha de ingreso: " + x.getFechaIngreso());
+                //System.out.println("Fecha de egreso: " + x.getFechaEgreso());}
+                     
             
             
         } catch (ClassNotFoundException ex) {
-           Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
