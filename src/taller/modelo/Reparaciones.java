@@ -12,7 +12,7 @@ import java.time.LocalDate;
  * @author Agustin
  */
 public class Reparaciones {
-    private int idReparaciones;
+    private int idReparacion;
     private Aparatos nroDeSerie;
     private Servicios codigo;
     private LocalDate fechaRealizacion;
@@ -28,20 +28,20 @@ public class Reparaciones {
         this.estado = estado;
     }
 
-    public Reparaciones(int idReparaciones, Aparatos nroDeSerie, Servicios codigo, LocalDate fechaRealizacion, boolean estado) {
-        this.idReparaciones = idReparaciones;
+    public Reparaciones(int idReparacion, Aparatos nroDeSerie, Servicios codigo, LocalDate fechaRealizacion, boolean estado) {
+        this.idReparacion = idReparacion;
         this.nroDeSerie = nroDeSerie;
         this.codigo = codigo;
         this.fechaRealizacion = fechaRealizacion;
         this.estado = estado;
     }
 
-    public int getIdReparaciones() {
-        return idReparaciones;
+    public int getIdReparacion() {
+        return idReparacion;
     }
 
-    public void setIdReparaciones(int idReparaciones) {
-        this.idReparaciones = idReparaciones;
+    public void setIdReparacion(int idReparacion) {
+        this.idReparacion = idReparacion;
     }
 
     public Aparatos getNroDeSerie() {
@@ -77,6 +77,6 @@ public class Reparaciones {
     }
     
     public String toString(){
-        return idReparaciones+"-"+nroDeSerie+"-"+codigo+"-"+fechaRealizacion+"-"+estado;
+        return idReparacion+"-"+nroDeSerie+"-"+codigo+"-"+fechaRealizacion+"-"+estado;
     }
 }

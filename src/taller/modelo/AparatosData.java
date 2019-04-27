@@ -112,14 +112,15 @@ public class AparatosData {
         try {
             
             String sql = "UPDATE aparatos SET dueño = ? , "
-                    + "tipoAparato =?, fechaEgreso =?, fechaIngreso =?, WHERE nroDeSerie = ?;";
+                    + "tipoAparato =?, fechaIngreso =?, fechaEgreso =? WHERE nroDeSerie = ?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, aparatos.getNroDeSerie());
-            ps.setInt(2, aparatos.getDueño().getIdCliente());
-            ps.setString(3, aparatos.getTipoAparato());
-            ps.setDate(4, Date.valueOf(aparatos.getFechaIngreso()));
-            ps.setDate(5, Date.valueOf(aparatos.getFechaEgreso()));
+            
+            ps.setInt(1, aparatos.getDueño().getIdCliente());
+            ps.setString(2, aparatos.getTipoAparato());
+            ps.setDate(3, Date.valueOf(aparatos.getFechaIngreso()));
+            ps.setDate(4, Date.valueOf(aparatos.getFechaEgreso()));
+            ps.setInt(5, aparatos.getNroDeSerie());
             ps.executeUpdate();
             
           

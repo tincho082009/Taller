@@ -32,13 +32,12 @@ public class ServiciosData {
    public void guardarServicio(Servicios servicio){
         try {
             
-            String sql = "INSERT INTO servicios (codigo, descripcion, costo) VALUES (? ,  ? , ? );";
+            String sql = "INSERT INTO servicios (descripcion, costo) VALUES (? , ?);";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
            
-            ps.setInt(1, servicio.getCodigo());
-            ps.setString(2, servicio.getDescripcion());
-            ps.setDouble(3, servicio.getCosto());
+            ps.setString(1, servicio.getDescripcion());
+            ps.setDouble(2, servicio.getCosto());
             
             
             ps.executeUpdate();
@@ -107,7 +106,7 @@ public class ServiciosData {
     
         try {
             
-            String sql = "UPDATE servicios SET descripcion = ?, costo = ? , WHERE codigo = ?;";
+            String sql = "UPDATE servicios SET descripcion = ?, costo = ?  WHERE codigo = ?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, servicio.getDescripcion());

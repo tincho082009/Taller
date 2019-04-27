@@ -50,7 +50,7 @@ public class ReparacionesData {
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
-                reparacion.setIdReparaciones(rs.getInt(1));
+                reparacion.setIdReparacion(rs.getInt(1));
             } else {
                 System.out.println("No se pudo obtener el id luego de insertar una reparacion");
             }
@@ -72,7 +72,7 @@ public class ReparacionesData {
             Reparaciones reparacion;
             while(resultSet.next()){
                 reparacion = new Reparaciones();
-                reparacion.setIdReparaciones(resultSet.getInt("idReparaciones"));
+                reparacion.setIdReparacion(resultSet.getInt("idReparacion"));
                 
                 Aparatos a=buscarAparato(resultSet.getInt("nroDeSerie"));
                 reparacion.setNroDeSerie(a);
@@ -95,13 +95,13 @@ public class ReparacionesData {
         return reparaciones;
     }
     
-    public void borrarReparaciones(int idReparaciones){
+    public void borrarReparaciones(int idReparacion){
     try {
             
-            String sql = "DELETE FROM reparaciones WHERE idReparaciones =?;";
+            String sql = "DELETE FROM reparaciones WHERE idReparacion =?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, idReparaciones);
+            ps.setLong(1, idReparacion);
                       
             ps.executeUpdate();
                         
@@ -119,14 +119,14 @@ public class ReparacionesData {
         try {
             
             String sql = "UPDATE reparaciones SET nroDeSerie = ?, codigo = ? , "
-                    + "fechaRealizacion =?, estado =? WHERE idReparaciones = ?;";
+                    + "fechaRealizacion =?, estado =? WHERE idReparacion = ?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, reparacion.getNroDeSerie().getNroDeSerie());
             ps.setInt(2, reparacion.getCodigo().getCodigo());
-            ps.setDate(4, Date.valueOf(reparacion.getFechaRealizacion()));
+            ps.setDate(3, Date.valueOf(reparacion.getFechaRealizacion()));
             ps.setBoolean(4, reparacion.isEstado());
-            ps.setInt(5, reparacion.getIdReparaciones());
+            ps.setInt(5, reparacion.getIdReparacion());
             ps.executeUpdate();
             
           
@@ -138,21 +138,21 @@ public class ReparacionesData {
     
     }
     
-    public Reparaciones buscarReparaciones(int idReparaciones){
+    public Reparaciones buscarReparaciones(int idReparacion){
     Reparaciones reparacion=null;
     try {
             
-            String sql = "SELECT * FROM reparaciones WHERE idReparaciones =?;";
+            String sql = "SELECT * FROM reparaciones WHERE idReparacion =?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, idReparaciones);
+            ps.setInt(1, idReparacion);
            
             
             ResultSet resultSet=ps.executeQuery();
             
             while(resultSet.next()){
                 reparacion = new Reparaciones();
-                reparacion.setIdReparaciones(resultSet.getInt("idRealizacion"));
+                reparacion.setIdReparacion(resultSet.getInt("idReparacion"));
                 
                 Aparatos a=buscarAparato(resultSet.getInt("nroDeSerie"));
                 reparacion.setNroDeSerie(a);
