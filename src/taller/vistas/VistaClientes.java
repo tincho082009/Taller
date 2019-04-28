@@ -215,8 +215,13 @@ public class VistaClientes extends javax.swing.JInternalFrame {
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
         // TODO add your handling code here:
+        if(jtId.getText() != null){
         int id = Integer.parseInt(jtId.getText());
         clienteData.borrarClientes(id);
+        }else{
+            System.out.println("El id seleccionado no se encuentra en la base de datos");
+                
+        }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
@@ -231,6 +236,9 @@ public class VistaClientes extends javax.swing.JInternalFrame {
             
             Clientes cliente = new Clientes(id, nombre, dni, domicilio, celular);
             clienteData.actualizarClientes(cliente);
+        }else{
+            System.out.println("El codigo seleccionado no se encuentra en la base de datos");
+                   
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
@@ -253,6 +261,8 @@ public class VistaClientes extends javax.swing.JInternalFrame {
             jtDomicilio.setText(cliente.getDomicilio());
             jtCelular.setText(String.valueOf(cliente.getCelular()));
         
+        }else{
+            System.out.println("El cliente no se encuentra en la base de datos");
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
     
