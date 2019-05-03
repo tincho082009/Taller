@@ -4,6 +4,8 @@
   <NonVisualComponents>
     <Component class="javax.swing.JScrollBar" name="jScrollBar1">
     </Component>
+    <Component class="javax.swing.JOptionPane" name="jOptionPane1">
+    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="closable" type="boolean" value="true"/>

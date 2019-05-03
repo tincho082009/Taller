@@ -42,6 +42,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jOptionPane1 = new javax.swing.JOptionPane();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -202,9 +203,9 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         sd.borrarServicios(codigo);
         } else {
             System.out.println("El codigo seleccionado no se encuentra en la base de datos");
+            jOptionPane1.showMessageDialog(null, "El codigo seleccionado no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
-
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
         // TODO add your handling code here:
         if(jtCodigo.getText() != null){
@@ -217,6 +218,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         
         } else {
             System.out.println("El codigo seleccionado no se encuentra en la base de datos");
+            jOptionPane1.showMessageDialog(null, "El codigo seleccionado no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
@@ -238,6 +240,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
             
         } else {
             System.out.println("El servicio no se encuentra en la base de datos");
+            jOptionPane1.showMessageDialog(null, "El servicio no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbBuscarActionPerformed
 
@@ -247,6 +250,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JOptionPane jOptionPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbBorrar;
