@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package taller.vistas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -282,6 +282,7 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
             fecha = LocalDate.parse(jLfechi.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             Aparatos aparato = new Aparatos();
             aparatosData.actualizarAparatos(aparato);
+            }
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jBactualizarActionPerformed
