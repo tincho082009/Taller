@@ -7,10 +7,13 @@ package taller.vistas;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import taller.modelo.Aparatos;
 import taller.modelo.AparatosData;
+import taller.modelo.ClienteData;
+import taller.modelo.Clientes;
 import taller.modelo.Conexion;
 
 /**
@@ -18,9 +21,11 @@ import taller.modelo.Conexion;
  * @author Usuario
  */
 public class VistaAparatos extends javax.swing.JInternalFrame {
-
-     private AparatosData aparatosData;
+    
+    private AparatosData aparatosData;
     private Conexion conexion;
+    private ClienteData cd;
+    private ArrayList<Clientes> listaClientes;
     /**
      * Creates new form VistaAparatos
      */
@@ -29,6 +34,11 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
             initComponents();
             conexion = new Conexion();
             aparatosData = new AparatosData(conexion);
+                        
+            listaClientes = (ArrayList)cd.obtenerClientes();
+            for(Clientes cl: listaClientes){
+                jcDueño.addItem(cl);
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(VistaAparatos.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -44,22 +54,30 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jOptionPane1 = new javax.swing.JOptionPane();
+        jPasswordField1 = new javax.swing.JPasswordField();
         javax.swing.JLabel jLaparatos = new javax.swing.JLabel();
         jLnumero = new javax.swing.JLabel();
         jLdueño = new javax.swing.JLabel();
         jLfechi = new javax.swing.JLabel();
         jLfeche = new javax.swing.JLabel();
         jBbuscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        jtSerie = new javax.swing.JTextField();
+        jtFechaI = new javax.swing.JTextField();
+        jtFechaE = new javax.swing.JTextField();
         jBGuardar = new javax.swing.JButton();
         jBborrar = new javax.swing.JButton();
         jBactualizar = new javax.swing.JButton();
         jBlimpiar = new javax.swing.JButton();
         jLtipo = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        jtTipo = new javax.swing.JTextField();
+        jcDueño = new javax.swing.JComboBox<>();
+
+        jPasswordField1.setText("jPasswordField1");
+
+        setClosable(true);
+        setIconifiable(true);
+        setMaximizable(true);
 
         jLaparatos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLaparatos.setText("APARATOS");
@@ -79,27 +97,21 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jtSerie.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jtSerieActionPerformed(evt);
             }
         });
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        jtFechaI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                jtFechaIActionPerformed(evt);
             }
         });
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        jtFechaE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
-            }
-        });
-
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                jtFechaEActionPerformed(evt);
             }
         });
 
@@ -134,9 +146,9 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
         jLtipo.setText("Tipo Aparato");
         jLtipo.setToolTipText("");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        jtTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                jtTipoActionPerformed(evt);
             }
         });
 
@@ -147,44 +159,47 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jBGuardar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBborrar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBactualizar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jBlimpiar))
+                        .addGap(157, 157, 157)
+                        .addComponent(jLaparatos, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(36, 36, 36)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLnumero)
-                                    .addComponent(jLdueño))
-                                .addGap(41, 41, 41)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
-                                    .addComponent(jTextField1))
-                                .addGap(54, 54, 54)
-                                .addComponent(jBbuscar))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLfeche)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLtipo)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(jLfechi)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(jLaparatos, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLdueño)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jcDueño, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLfechi)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLfeche)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jLtipo)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jBGuardar)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(jBborrar)
+                                        .addGap(29, 29, 29)
+                                        .addComponent(jBactualizar)))))
+                        .addGap(18, 29, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jBlimpiar)
+                            .addComponent(jBbuscar))))
+                .addGap(33, 33, 33))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,25 +208,25 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLnumero)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBbuscar))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLdueño)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jcDueño, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLtipo)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLfechi)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(jtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLfeche, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(jtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(58, 58, 58)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGuardar)
                     .addComponent(jBborrar)
@@ -223,64 +238,72 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void jtFechaIActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtFechaIActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_jtFechaIActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void jtFechaEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtFechaEActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_jtFechaEActionPerformed
 
     private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
-              int nroDeSerie = Integer.parseInt(jLnumero.getText());
-              Aparatos aparato = new Aparatos ();
-              aparatosData.buscarAparatos(nroDeSerie);
+              int nroDeSerie = Integer.parseInt(jtSerie.getText());
+              
+              Aparatos aparato = aparatosData.buscarAparatos(nroDeSerie);
+              
               if(aparato != null){
-              jLdueño.setText(aparato.toString());
-              jLtipo.setText(aparato.getTipoAparato());
-              jLfechi.setText(aparato.getFechaEgreso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-              jLfeche.setText(aparato.getFechaIngreso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-        }
+              jcDueño.setSelectedItem(aparato.getDueño());
+              jtTipo.setText(aparato.getTipoAparato());             
+              jtFechaI.setText(aparato.getFechaIngreso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+              jtFechaE.setText(aparato.getFechaEgreso().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+        } else {
+                System.out.println("El aparato no se encuentra en la base de datos");
+                jOptionPane1.showMessageDialog(null, "El aparato no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);  
+              }
         // TODO add your handling code here:
     }//GEN-LAST:event_jBbuscarActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jtSerieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtSerieActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jtSerieActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void jtTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+    }//GEN-LAST:event_jtTipoActionPerformed
 
     private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        String Dueño = jLdueño.getText();
-        LocalDate fecha = LocalDate.parse(jLfechi.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        fecha = LocalDate.parse(jLfeche.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-        Aparatos aparato = new Aparatos ();
+        Clientes dueño = (Clientes) jcDueño.getSelectedItem();
+        String tipo = jtTipo.getText();
+        LocalDate fechaI = LocalDate.parse(jtFechaI.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        LocalDate fechaE = LocalDate.parse(jtFechaE.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        Aparatos aparato = new Aparatos (dueño, tipo, fechaI, fechaE);
         aparatosData.guardarAparato(aparato);
-        jLnumero.setText(aparato.getNroDeSerie()+"");
+        jtSerie.setText(aparato.getNroDeSerie()+"");
 
         // TODO add your handling code here:
     }//GEN-LAST:event_jBGuardarActionPerformed
 
     private void jBborrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBborrarActionPerformed
-         int nroDeSerie = Integer.parseInt(jLnumero.getText());
+        
+         if(jtSerie.getText() != null){
+         int nroDeSerie = Integer.parseInt(jtSerie.getText());
          aparatosData.borrarAparatos(nroDeSerie);
+        } else {
+            System.out.println("El numero de serie seleccionado no se encuentra en la base de datos");
+            jOptionPane1.showMessageDialog(null, "El numero de serie seleccionado no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);
+        }
         // TODO add your handling code here:
     }//GEN-LAST:event_jBborrarActionPerformed
 
     private void jBactualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBactualizarActionPerformed
-            if(jLnumero.getText() != null){
+            if(jtSerie.getText() != null){
             
-            int nroDeSerie = Integer.parseInt(jLnumero.getText());
-            String dueño = jLdueño.getText();
-            LocalDate fecha = LocalDate.parse(jLfeche.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            fecha = LocalDate.parse(jLfechi.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-            Aparatos aparato = new Aparatos();
+            int nroDeSerie = Integer.parseInt(jtSerie.getText());
+            Clientes dueño = (Clientes)jcDueño.getSelectedItem();
+            String tipo = jtTipo.getText();
+            LocalDate fechaI = LocalDate.parse(jtFechaI.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            LocalDate fechaE = LocalDate.parse(jtFechaE.getText(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+            Aparatos aparato = new Aparatos(nroDeSerie, dueño, tipo, fechaI, fechaE);
             aparatosData.actualizarAparatos(aparato);
             }
 
@@ -288,11 +311,10 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBactualizarActionPerformed
 
     private void jBlimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlimpiarActionPerformed
-       jLnumero.setText("");
-       jLdueño.setText("");
-       jLtipo.setText("");
-       jLfeche.setText("");
-       jLfechi.setText("");
+       jtSerie.setText("");      
+       jtTipo.setText("");
+       jtFechaI.setText("");
+       jtFechaE.setText("");
         // TODO add your handling code here:
     }//GEN-LAST:event_jBlimpiarActionPerformed
 
@@ -308,10 +330,12 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLfechi;
     private javax.swing.JLabel jLnumero;
     private javax.swing.JLabel jLtipo;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JOptionPane jOptionPane1;
+    private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JComboBox<Clientes> jcDueño;
+    private javax.swing.JTextField jtFechaE;
+    private javax.swing.JTextField jtFechaI;
+    private javax.swing.JTextField jtSerie;
+    private javax.swing.JTextField jtTipo;
     // End of variables declaration//GEN-END:variables
 }

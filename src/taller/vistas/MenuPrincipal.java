@@ -33,16 +33,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu7 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         Escritorio = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jAparatos = new javax.swing.JMenu();
-        jFormAp = new javax.swing.JMenu();
-        jClientes = new javax.swing.JMenu();
-        jFormCl = new javax.swing.JMenu();
-        jReparaciones = new javax.swing.JMenu();
-        jFormRe = new javax.swing.JMenu();
-        jServicios = new javax.swing.JMenu();
-        jFormSer = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jmAparatos = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jmServicios = new javax.swing.JMenuItem();
+        jMenu10 = new javax.swing.JMenu();
+        jmClientes = new javax.swing.JMenuItem();
+        jMenu11 = new javax.swing.JMenu();
 
         jMenu5.setText("File");
         jMenuBar2.add(jMenu5);
@@ -56,9 +59,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu8.setText("Edit");
         jMenuBar3.add(jMenu8);
 
+        jMenu1.setText("File");
+        jMenuBar4.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar4.add(jMenu2);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Escritorio.setBackground(new java.awt.Color(0, 102, 255));
+        Escritorio.setBackground(new java.awt.Color(0, 102, 102));
         Escritorio.setToolTipText("");
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
@@ -69,41 +78,50 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 279, Short.MAX_VALUE)
+            .addGap(0, 304, Short.MAX_VALUE)
         );
 
-        jAparatos.setText("Aparatos");
+        jMenu3.setText("Archivo");
+        jMenuBar1.add(jMenu3);
 
-        jFormAp.setText("Formulario Aparatos");
-        jFormAp.addActionListener(new java.awt.event.ActionListener() {
+        jMenu4.setText("Aparatos");
+
+        jmAparatos.setText("Formulario Aparatos");
+        jmAparatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormApActionPerformed(evt);
+                jmAparatosActionPerformed(evt);
             }
         });
-        jAparatos.add(jFormAp);
+        jMenu4.add(jmAparatos);
 
-        jMenuBar1.add(jAparatos);
+        jMenuBar1.add(jMenu4);
 
-        jClientes.setText("Clientes");
+        jMenu9.setText("Servicios");
 
-        jFormCl.setText("Formulario Clientes");
-        jClientes.add(jFormCl);
+        jmServicios.setText("Formulario Servicios");
+        jmServicios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmServiciosActionPerformed(evt);
+            }
+        });
+        jMenu9.add(jmServicios);
 
-        jMenuBar1.add(jClientes);
+        jMenuBar1.add(jMenu9);
 
-        jReparaciones.setText("Reparaciones");
+        jMenu10.setText("Clientes");
 
-        jFormRe.setText("Formulario Reparaciones");
-        jReparaciones.add(jFormRe);
+        jmClientes.setText("Formulario Clientes");
+        jmClientes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmClientesActionPerformed(evt);
+            }
+        });
+        jMenu10.add(jmClientes);
 
-        jMenuBar1.add(jReparaciones);
+        jMenuBar1.add(jMenu10);
 
-        jServicios.setText("Servicios");
-
-        jFormSer.setText("Formulario Servicios");
-        jServicios.add(jFormSer);
-
-        jMenuBar1.add(jServicios);
+        jMenu11.setText("Reparaciones");
+        jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
 
@@ -115,27 +133,46 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Escritorio)
+            .addComponent(Escritorio, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jFormApActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormApActionPerformed
-       Escritorio.removeAll();
-       Escritorio.repaint();
-       VistaAparatos va = new VistaAparatos();
-       va.setVisible(true);
-       Escritorio.add(va);
-       Escritorio.moveToFront(va);
-       
-       
-        // TODOadd your handling code here:
-    }//GEN-LAST:event_jFormApActionPerformed
+    private void jmAparatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAparatosActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaAparatos va = new VistaAparatos();
+        va.setVisible(true);
+        Escritorio.add(va);
+        Escritorio.moveToFront(va);
+    }//GEN-LAST:event_jmAparatosActionPerformed
+
+    private void jmServiciosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmServiciosActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaServicios vs = new VistaServicios();
+        vs.setVisible(true);
+        Escritorio.add(vs);
+        Escritorio.moveToFront(vs);
+    }//GEN-LAST:event_jmServiciosActionPerformed
+
+    private void jmClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmClientesActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaClientes vc = new VistaClientes();
+        vc.setVisible(true);
+        Escritorio.add(vc);
+        Escritorio.moveToFront(vc);
+    }//GEN-LAST:event_jmClientesActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String args[]) {
         /* Set the 
         look and feel */
@@ -171,20 +208,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane Escritorio;
-    private javax.swing.JMenu jAparatos;
-    private javax.swing.JMenu jClientes;
-    private javax.swing.JMenu jFormAp;
-    private javax.swing.JMenu jFormCl;
-    private javax.swing.JMenu jFormRe;
-    private javax.swing.JMenu jFormSer;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenu jReparaciones;
-    private javax.swing.JMenu jServicios;
+    private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuItem jmAparatos;
+    private javax.swing.JMenuItem jmClientes;
+    private javax.swing.JMenuItem jmServicios;
     // End of variables declaration//GEN-END:variables
 }
