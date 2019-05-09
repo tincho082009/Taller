@@ -205,7 +205,7 @@ public class VistaServicios extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(jtCodigo.getText());
         sd.borrarServicios(codigo);
         } else {
-            System.out.println("El codigo seleccionado no se encuentra en la base de datos");
+            System.out.println("El codigoo seleccionado no se encuentra en la base de datos");
             jOptionPane1.showMessageDialog(null, "El codigo seleccionado no se encuentra en la base de datos", "ERROR", jOptionPane1.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
