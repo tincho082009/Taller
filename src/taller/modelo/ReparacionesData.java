@@ -95,20 +95,22 @@ public class ReparacionesData {
         return reparaciones;
     }
     
-    public void borrarReparaciones(int idReparacion){
+    public void borrarReparacionesDeUnAparatoDeUnServicio(int nroDeSerie, int codigo){
     try {
             
-            String sql = "DELETE FROM reparaciones WHERE idReparacion =?;";
+            String sql = "DELETE FROM reparaciones WHERE nroDeSerie =? and codigo =?;";
 
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setLong(1, idReparacion);
+            ps.setInt(1, nroDeSerie);
+            ps.setInt(2, codigo);
                       
             ps.executeUpdate();
                         
             ps.close();
-    
+            
+                      
         } catch (SQLException ex) {
-            System.out.println("Error al insertar una reparacion: " + ex.getMessage());
+            System.out.println("Error al borrar una reparacion: " + ex.getMessage());
         }
         
     

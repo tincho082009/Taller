@@ -7,6 +7,7 @@
 package taller.vistas;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -124,8 +125,18 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         });
 
         jbCancelar.setText("Cancelar");
+        jbCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelarActionPerformed(evt);
+            }
+        });
 
         jbBorrar.setText("Borrar");
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,8 +227,24 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
             Reparaciones repa = new Reparaciones(a, s, a.getFechaEgreso(), true);
             rd.guardarReparacion(repa);
             borrarFilas();
-        }
+        } 
     }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        // TODO add your handling code here:
+         int filaSeleccionada = jtAparatos.getSelectedRow();
+        if(filaSeleccionada !=-1){
+            Servicios ser = (Servicios)jcServicios.getSelectedItem();
+            int nroDeSerie=(Integer)modelo.getValueAt(filaSeleccionada, 0);
+            rd.borrarReparacionesDeUnAparatoDeUnServicio(nroDeSerie, ser.getCodigo());
+            borrarFilas();
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jbCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelarActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jbCancelarActionPerformed
 
 
     
@@ -264,7 +291,7 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         List<Aparatos> aparatos = rd.obtenerAparatosNOArreglados(servicio.getCodigo());
         
         for(Aparatos a: aparatos){
-            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getDueño().getIdCliente(), a.getTipoAparato(), a.getFechaIngreso(), a.getFechaEgreso()});
+            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getDueño(), a.getTipoAparato(), a.getFechaIngreso(), a.getFechaEgreso()});
         }
        
     }
