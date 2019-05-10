@@ -186,5 +186,82 @@ public class ReparacionesData {
         ServiciosData sd = new ServiciosData(conexion);
         return sd.buscarServicios(codigo);
     }
+    
+    public Clientes buscarCliente(int idCliente){
+        ClienteData cd = new ClienteData(conexion);
+        return cd.buscarClientes(idCliente);
+    
+    }
+    
+    public List<Aparatos> obtenerAparatosArreglados(int id){
+        List<Aparatos> aparatos = new ArrayList<Aparatos>();
+            
+
+        try {
+            String sql = "SELECT aparatos.nroDeSerie, dueño, tipoAparato, fechaIngreso, fechaEgreso FROM reparaciones, aparatos WHERE reparaciones.nroDeSerie = aparatos.nroDeSerie\n" +
+                    "and reparaciones.codigo = ?;";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            Aparatos aparato;
+            while(resultSet.next()){
+                aparato = new Aparatos();
+                aparato.setNroDeSerie(resultSet.getInt("nroDeSerie"));
+                            
+                Clientes c = buscarCliente(resultSet.getInt("dueño"));
+                aparato.setDueño(c);
+                
+                aparato.setTipoAparato(resultSet.getString("tipoAparato"));
+                
+                aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
+                
+                aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
+                
+                aparatos.add(aparato);
+            }      
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener aparatos por servicios: " + ex.getMessage());
+        }
+        
+        
+        return aparatos;
+    }
+
+    
+    public List<Aparatos> obtenerAparatosNOArreglados(int id){
+        List<Aparatos> aparatos = new ArrayList<Aparatos>();
+            
+
+        try {
+            String sql = "SELECT * FROM aparatos WHERE nroDeSerie not in "
+                    + "(SELECT nroDeSerie FROM reparaciones WHERE codigo =?);";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1,id);
+            ResultSet resultSet = statement.executeQuery();
+            Aparatos aparato;
+            while(resultSet.next()){
+                aparato = new Aparatos();
+                aparato.setNroDeSerie(resultSet.getInt("nroDeSerie"));
+                            
+                Clientes c = buscarCliente(resultSet.getInt("dueño"));
+                aparato.setDueño(c);
+                
+                aparato.setTipoAparato(resultSet.getString("tipoAparato"));
+                
+                aparato.setFechaIngreso(resultSet.getDate("fechaIngreso").toLocalDate());
+                
+                aparato.setFechaEgreso(resultSet.getDate("fechaEgreso").toLocalDate());
+                
+                aparatos.add(aparato);
+            }      
+            statement.close();
+        } catch (SQLException ex) {
+            System.out.println("Error al obtener aparatos por servicios: " + ex.getMessage());
+        }
+        
+        
+        return aparatos;
+    }
 }
 

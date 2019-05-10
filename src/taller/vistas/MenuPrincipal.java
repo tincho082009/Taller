@@ -46,6 +46,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu10 = new javax.swing.JMenu();
         jmClientes = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
+        jmEstado = new javax.swing.JMenuItem();
 
         jMenu5.setText("File");
         jMenuBar2.add(jMenu5);
@@ -121,6 +122,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu10);
 
         jMenu11.setText("Reparaciones");
+
+        jmEstado.setText("Estado de los aparatos");
+        jmEstado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmEstadoActionPerformed(evt);
+            }
+        });
+        jMenu11.add(jmEstado);
+
         jMenuBar1.add(jMenu11);
 
         setJMenuBar(jMenuBar1);
@@ -168,6 +178,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Escritorio.add(vc);
         Escritorio.moveToFront(vc);
     }//GEN-LAST:event_jmClientesActionPerformed
+
+    private void jmEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmEstadoActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaReparaciones vr = new VistaReparaciones();
+        vr.setVisible(true);
+        Escritorio.add(vr);
+        Escritorio.moveToFront(vr);
+    }//GEN-LAST:event_jmEstadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -225,6 +245,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jmAparatos;
     private javax.swing.JMenuItem jmClientes;
+    private javax.swing.JMenuItem jmEstado;
     private javax.swing.JMenuItem jmServicios;
     // End of variables declaration//GEN-END:variables
 }

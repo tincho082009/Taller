@@ -90,7 +90,7 @@ public class Prueba {
             
             ReparacionesData rd = new ReparacionesData(conectar);
             
-            Reparaciones rep1 = new Reparaciones(2, rd.buscarAparato(5), rd.buscarServicio(1), rd.buscarAparato(5).getFechaEgreso(), false);
+            //Reparaciones rep1 = new Reparaciones(2, rd.buscarAparato(5), rd.buscarServicio(1), rd.buscarAparato(5).getFechaEgreso(), true);
             //rd.guardarReparacion(rep1);
             
             //List<Reparaciones> listaRep = rd.obtenerReparaciones();
@@ -107,6 +107,17 @@ public class Prueba {
             //rd.actualizarReparaciones(rep1);
             
             //rd.borrarReparaciones(2);
+            
+            //List<Aparatos> listaAp = rd.obtenerAparatosArreglados(3);
+            //for(Aparatos x: listaAp){
+                //System.out.println("nroDeSerie " + x.getNroDeSerie());
+                //System.out.println("tipoAparato " + x.getTipoAparato());             
+           // }
+           
+           //List<Aparatos> listaAp = rd.obtenerAparatosNOArreglados(2);
+           //for(Aparatos x: listaAp){
+                //System.out.println("nroDeSerie " + x.getNroDeSerie());
+               // System.out.println("tipoAparato " + x.getTipoAparato());}
             
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);

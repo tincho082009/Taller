@@ -112,6 +112,16 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Reparaciones"/>
           </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="jmEstado">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Estado de los aparatos"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jmEstadoActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
         </Menu>
       </SubComponents>
     </Menu>
