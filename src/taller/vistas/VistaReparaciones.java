@@ -6,6 +6,7 @@
 
 package taller.vistas;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -15,6 +16,7 @@ import taller.modelo.Aparatos;
 import taller.modelo.AparatosData;
 import taller.modelo.Clientes;
 import taller.modelo.Conexion;
+import taller.modelo.Reparaciones;
 import taller.modelo.ReparacionesData;
 import taller.modelo.Servicios;
 import taller.modelo.ServiciosData;
@@ -69,8 +71,9 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtAparatos = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbGuardar = new javax.swing.JButton();
+        jbCancelar = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
@@ -113,20 +116,29 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jtAparatos);
 
-        jButton1.setText("Guardar");
+        jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Cancelar");
+        jbCancelar.setText("Cancelar");
+
+        jbBorrar.setText("Borrar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(77, 77, 77)
-                .addComponent(jButton1)
+                .addGap(34, 34, 34)
+                .addComponent(jbGuardar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(97, 97, 97))
+                .addComponent(jbBorrar)
+                .addGap(45, 45, 45)
+                .addComponent(jbCancelar)
+                .addGap(58, 58, 58))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -167,9 +179,10 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jbGuardar)
+                    .addComponent(jbBorrar)
+                    .addComponent(jbCancelar))
                 .addGap(0, 22, Short.MAX_VALUE))
         );
 
@@ -188,12 +201,33 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         cargarAparatosArreglados();
     }//GEN-LAST:event_jrResueltosActionPerformed
 
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        // TODO add your handling code here:
+        int filaSeleccionada = jtAparatos.getSelectedRow();
+        
+        if (filaSeleccionada !=-1){
+            Servicios s = (Servicios)jcServicios.getSelectedItem();
+            int nroDeSerie=(Integer)modelo.getValueAt(filaSeleccionada, 0);
+            Clientes dueño = (Clientes) modelo.getValueAt(filaSeleccionada, 1);
+            String tipo=(String)modelo.getValueAt(filaSeleccionada, 2);
+            LocalDate fechaI = (LocalDate) modelo.getValueAt(filaSeleccionada, 3);
+            LocalDate fechaE = (LocalDate) modelo.getValueAt(filaSeleccionada, 4);
+            Aparatos a = new Aparatos(nroDeSerie, dueño, tipo, fechaI, fechaE);
+            Reparaciones repa = new Reparaciones(a, s, a.getFechaEgreso(), true);
+            rd.guardarReparacion(repa);
+            borrarFilas();
+        }
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
 
     
     public void armarCabeceraTabla(){
         ArrayList<Object> columnas = new ArrayList<Object>();
          columnas.add("NroDeSerie");
+         columnas.add("Dueño");
          columnas.add("TipoAparato");
+         columnas.add("FechaIngreso");
+         columnas.add("FechaEgreso");
          for(Object it: columnas){
              
              modelo.addColumn(it);
@@ -217,7 +251,7 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         List<Aparatos> aparatos = rd.obtenerAparatosArreglados(servicio.getCodigo());
         
         for(Aparatos a: aparatos){
-            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getTipoAparato()});
+            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getDueño(), a.getTipoAparato(), a.getFechaIngreso(), a.getFechaEgreso()});
         }
        
     }
@@ -230,17 +264,18 @@ public class VistaReparaciones extends javax.swing.JInternalFrame {
         List<Aparatos> aparatos = rd.obtenerAparatosNOArreglados(servicio.getCodigo());
         
         for(Aparatos a: aparatos){
-            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getTipoAparato()});
+            modelo.addRow(new Object[]{a.getNroDeSerie(), a.getDueño().getIdCliente(), a.getTipoAparato(), a.getFechaIngreso(), a.getFechaEgreso()});
         }
        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbCancelar;
+    private javax.swing.JButton jbGuardar;
     private javax.swing.JComboBox<Servicios> jcServicios;
     private javax.swing.JRadioButton jrPendientes;
     private javax.swing.JRadioButton jrResueltos;
