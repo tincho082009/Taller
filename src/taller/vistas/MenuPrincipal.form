@@ -60,11 +60,17 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMenu3">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/taller/Fotos/iconoArchivo.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/taller/Fotos/iconoAparatos.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Aparatos"/>
           </Properties>
           <SubComponents>
@@ -80,6 +86,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu9">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/taller/Fotos/iconoServicios.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Servicios"/>
           </Properties>
           <SubComponents>
@@ -95,6 +104,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu10">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/taller/Fotos/iconoClientes.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Clientes"/>
           </Properties>
           <SubComponents>
@@ -110,6 +122,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu11">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/taller/Fotos/iconoReparaciones.png"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Reparaciones"/>
           </Properties>
           <SubComponents>
@@ -175,7 +190,7 @@
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="304" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="298" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
       </Layout>

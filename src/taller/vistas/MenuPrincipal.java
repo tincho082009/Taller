@@ -79,12 +79,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 304, Short.MAX_VALUE)
+            .addGap(0, 298, Short.MAX_VALUE)
         );
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoArchivo.png"))); // NOI18N
         jMenu3.setText("Archivo");
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoAparatos.png"))); // NOI18N
         jMenu4.setText("Aparatos");
 
         jmAparatos.setText("Formulario Aparatos");
@@ -97,6 +99,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoServicios.png"))); // NOI18N
         jMenu9.setText("Servicios");
 
         jmServicios.setText("Formulario Servicios");
@@ -109,6 +112,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu9);
 
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoClientes.png"))); // NOI18N
         jMenu10.setText("Clientes");
 
         jmClientes.setText("Formulario Clientes");
@@ -121,6 +125,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu10);
 
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoReparaciones.png"))); // NOI18N
         jMenu11.setText("Reparaciones");
 
         jmEstado.setText("Estado de los aparatos");
@@ -186,7 +191,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         VistaReparaciones vr = new VistaReparaciones();
         vr.setVisible(true);
         Escritorio.add(vr);
-        Escritorio.moveToFront(vr);
+        Escritorio.moveToFront(vr);      
     }//GEN-LAST:event_jmEstadoActionPerformed
 
     /**

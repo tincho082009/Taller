@@ -81,15 +81,20 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
         setIconifiable(true);
         setMaximizable(true);
 
-        jLaparatos.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jLaparatos.setText("APARATOS");
+        jLaparatos.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
+        jLaparatos.setForeground(new java.awt.Color(255, 0, 51));
+        jLaparatos.setText("-APARATOS-");
 
+        jLnumero.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLnumero.setText("N deSerie");
 
+        jLdueño.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLdueño.setText("Dueño");
 
+        jLfechi.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLfechi.setText("Fecha Ingreso");
 
+        jLfeche.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLfeche.setText("Fecha Egreso");
 
         jBbuscar.setText("Buscar");
@@ -145,6 +150,7 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLtipo.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLtipo.setText("Tipo Aparato");
         jLtipo.setToolTipText("");
 
@@ -159,38 +165,39 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(jLaparatos, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLdueño)
-                            .addComponent(jLfechi)
-                            .addComponent(jLtipo)
-                            .addComponent(jLfeche)
-                            .addComponent(jLnumero))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jcbDueños, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jBbuscar))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLdueño)
+                                .addComponent(jLfechi)
+                                .addComponent(jLtipo)
+                                .addComponent(jLfeche)
+                                .addComponent(jLnumero))
+                            .addGap(25, 25, 25)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jcbDueños, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtFechaI, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jBbuscar))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(31, 31, 31)
+                            .addComponent(jBGuardar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jBborrar)
+                            .addGap(53, 53, 53)
+                            .addComponent(jBactualizar)
+                            .addGap(60, 60, 60)
+                            .addComponent(jBlimpiar)
+                            .addGap(9, 9, 9)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(31, 31, 31)
-                        .addComponent(jBGuardar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBborrar)
-                        .addGap(53, 53, 53)
-                        .addComponent(jBactualizar)
-                        .addGap(60, 60, 60)
-                        .addComponent(jBlimpiar)
-                        .addGap(9, 9, 9)))
+                        .addGap(197, 197, 197)
+                        .addComponent(jLaparatos)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -199,7 +206,14 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
                 .addComponent(jLaparatos, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jBGuardar)
+                            .addComponent(jBborrar)
+                            .addComponent(jBactualizar)
+                            .addComponent(jBlimpiar))
+                        .addGap(32, 32, 32))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jtSerie, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLnumero)
@@ -220,15 +234,7 @@ public class VistaAparatos extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLfeche, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jtFechaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(52, 81, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jBGuardar)
-                            .addComponent(jBborrar)
-                            .addComponent(jBactualizar)
-                            .addComponent(jBlimpiar))
-                        .addGap(32, 32, 32))))
+                        .addGap(52, 91, Short.MAX_VALUE))))
         );
 
         pack();

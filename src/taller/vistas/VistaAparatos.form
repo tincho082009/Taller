@@ -33,44 +33,46 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="278" max="-2" attributes="0"/>
-                      <Component id="jLaparatos" min="-2" pref="71" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLdueño" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLfechi" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLtipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLfeche" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLnumero" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jcbDueños" min="-2" pref="291" max="-2" attributes="0"/>
-                          <Component id="jtTipo" alignment="0" min="-2" pref="291" max="-2" attributes="0"/>
-                          <Component id="jtFechaI" alignment="0" min="-2" pref="291" max="-2" attributes="0"/>
-                          <Component id="jtFechaE" min="-2" pref="290" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jtSerie" min="-2" pref="291" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jBbuscar" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLdueño" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLfechi" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLtipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLfeche" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLnumero" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jcbDueños" min="-2" pref="291" max="-2" attributes="0"/>
+                              <Component id="jtTipo" alignment="0" min="-2" pref="291" max="-2" attributes="0"/>
+                              <Component id="jtFechaI" alignment="0" min="-2" pref="291" max="-2" attributes="0"/>
+                              <Component id="jtFechaE" min="-2" pref="290" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jtSerie" min="-2" pref="291" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jBbuscar" min="-2" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                          <Component id="jBGuardar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jBborrar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
+                          <Component id="jBactualizar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
+                          <Component id="jBlimpiar" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="jBGuardar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jBborrar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
-                      <Component id="jBactualizar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
-                      <Component id="jBlimpiar" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="197" max="-2" attributes="0"/>
+                      <Component id="jLaparatos" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
@@ -79,11 +81,20 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" attributes="0">
               <Component id="jLaparatos" min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBborrar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBactualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jBlimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jtSerie" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLnumero" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -109,17 +120,7 @@
                           <Component id="jLfeche" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="jtFechaE" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="52" pref="81" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jBGuardar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBborrar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBactualizar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jBlimpiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                      <EmptySpace min="52" pref="91" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -130,9 +131,12 @@
     <Component class="javax.swing.JLabel" name="jLaparatos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Arial" size="12" style="1"/>
+          <Font name="Calibri" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="APARATOS"/>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="33" green="0" red="ff" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="-APARATOS-"/>
       </Properties>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="true"/>
@@ -141,21 +145,33 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLnumero">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="N deSerie"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLdue&#xf1;o">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Due&#xf1;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLfechi">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Fecha Ingreso"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLfeche">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Fecha Egreso"/>
       </Properties>
     </Component>
@@ -216,6 +232,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLtipo">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Calibri" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Tipo Aparato"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
