@@ -119,6 +119,12 @@ public class Prueba {
                 //System.out.println("nroDeSerie " + x.getNroDeSerie());
                // System.out.println("tipoAparato " + x.getTipoAparato());}
             
+            List<Servicios> listaSer = rd.obtenerServicios(2);
+            for(Servicios x: listaSer){
+                System.out.println("codigo " + x.getCodigo());
+                System.out.println("descripcion " + x.getDescripcion());
+                System.out.println("costo " + x.getCosto());                                                
+            }
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Prueba.class.getName()).log(Level.SEVERE, null, ex);
         }

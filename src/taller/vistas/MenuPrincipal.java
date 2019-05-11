@@ -47,6 +47,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jmClientes = new javax.swing.JMenuItem();
         jMenu11 = new javax.swing.JMenu();
         jmEstado = new javax.swing.JMenuItem();
+        jMenu12 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         jMenu5.setText("File");
         jMenuBar2.add(jMenu5);
@@ -69,24 +71,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         Escritorio.setBackground(new java.awt.Color(0, 102, 102));
-        Escritorio.setToolTipText("");
 
         javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
         Escritorio.setLayout(EscritorioLayout);
         EscritorioLayout.setHorizontalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 432, Short.MAX_VALUE)
+            .addGap(0, 558, Short.MAX_VALUE)
         );
         EscritorioLayout.setVerticalGroup(
             EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 297, Short.MAX_VALUE)
         );
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoArchivo.png"))); // NOI18N
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoArchivo.png"))); // NOI18N
         jMenu3.setText("Archivo");
         jMenuBar1.add(jMenu3);
 
-        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoAparatos.png"))); // NOI18N
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoAparatos.png"))); // NOI18N
         jMenu4.setText("Aparatos");
 
         jmAparatos.setText("Formulario Aparatos");
@@ -99,7 +100,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
-        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoServicios.png"))); // NOI18N
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoServicios.png"))); // NOI18N
         jMenu9.setText("Servicios");
 
         jmServicios.setText("Formulario Servicios");
@@ -112,7 +113,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu9);
 
-        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoClientes.png"))); // NOI18N
+        jMenu10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoClientes.png"))); // NOI18N
         jMenu10.setText("Clientes");
 
         jmClientes.setText("Formulario Clientes");
@@ -125,7 +126,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu10);
 
-        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/Fotos/iconoReparaciones.png"))); // NOI18N
+        jMenu11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoReparaciones.png"))); // NOI18N
         jMenu11.setText("Reparaciones");
 
         jmEstado.setText("Estado de los aparatos");
@@ -137,6 +138,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jMenu11.add(jmEstado);
 
         jMenuBar1.add(jMenu11);
+
+        jMenu12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/taller/vistas/iconoCosto.png"))); // NOI18N
+        jMenu12.setText("CostoFinal");
+
+        jMenuItem1.setText("CostoXAparato");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu12.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu12);
 
         setJMenuBar(jMenuBar1);
 
@@ -194,6 +208,16 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Escritorio.moveToFront(vr);      
     }//GEN-LAST:event_jmEstadoActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+        Escritorio.removeAll();
+        Escritorio.repaint();
+        VistaCosto vc = new VistaCosto();
+        vc.setVisible(true);
+        Escritorio.add(vc);
+        Escritorio.moveToFront(vc); 
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -236,6 +260,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu11;
+    private javax.swing.JMenu jMenu12;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
@@ -248,6 +273,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuBar jMenuBar4;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jmAparatos;
     private javax.swing.JMenuItem jmClientes;
     private javax.swing.JMenuItem jmEstado;

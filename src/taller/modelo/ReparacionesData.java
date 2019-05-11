@@ -13,6 +13,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -265,5 +267,37 @@ public class ReparacionesData {
         
         return aparatos;
     }
+        public List<Servicios> obtenerServicios(int id){
+        
+            List<Servicios> servicios = new ArrayList<Servicios>();
+            
+         try {
+             
+            String sq1 = "SELECT servicios.codigo, descripcion, costo FROM reparaciones, servicios WHERE reparaciones.codigo = servicios.codigo\n" +
+                    "and reparaciones.nroDeSerie = ?;";
+            PreparedStatement ps = con.prepareStatement(sq1);
+            ps.setInt(1, id);
+            ResultSet resultSet = ps.executeQuery();
+            Servicios servicio;
+            while(resultSet.next()){
+                servicio = new Servicios();
+                servicio.setCodigo(resultSet.getInt("codigo"));
+                                         
+                servicio.setDescripcion(resultSet.getString("descripcion"));
+                
+                servicio.setCosto(resultSet.getDouble("costo"));
+                                
+                servicios.add(servicio);
+            }      
+            ps.close();
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ReparacionesData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return servicios;
+            
+        }
+  
 }
 
